@@ -1,6 +1,5 @@
 {
   "name": "Empty Diamond WebApi",
-  "staticFileRoutes": ["public"],
   "homeRoute": "home",
   "allowFileRoute": false,
   "accessLogToConsole": false,
