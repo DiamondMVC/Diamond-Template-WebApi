@@ -5,7 +5,7 @@
     "homepage": "https://github.com/DiamondMVC/Diamond-Template-WebApi",
     "dependencies": {
         "vibe-d": "~>0.8.1",
-        "diamond": "~>2.4.0"
+        "diamond": "~>2.3.1"
     },
     "versions": ["VibeDefaultMain", "Diamond_Debug", "Diamond_WebApi"],
     "sourcePaths": ["core", "models", "controllers"],
