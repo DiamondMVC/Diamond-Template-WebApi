@@ -10,6 +10,8 @@ import diamond.core.websettings;
 class DiamondWebSettings : WebSettings
 {
   import vibe.d : HTTPServerRequest, HTTPServerResponse, HTTPServerErrorInfo;
+  
+  import diamond.http;
 
   private:
   this()
@@ -22,12 +24,12 @@ class DiamondWebSettings : WebSettings
   {
   }
 
-  override bool onBeforeRequest(HTTPServerRequest request, HTTPServerResponse response)
+  override bool onBeforeRequest(HttpClient client)
   {
     return true;
   }
 
-  override void onAfterRequest(HTTPServerRequest request, HTTPServerResponse response)
+  override void onAfterRequest(HttpClient client)
   {
 
   }
@@ -35,9 +37,7 @@ class DiamondWebSettings : WebSettings
   override void onHttpError(Throwable thrownError, HTTPServerRequest request,
     HTTPServerResponse response, HTTPServerErrorInfo error)
   {
-    import std.conv : to;
-
-    response.bodyWriter.write(to!string(thrownError));
+    response.bodyWriter.write(thrownError.toString());
   }
 
   override void onNotFound(HTTPServerRequest request, HTTPServerResponse response)
@@ -47,7 +47,7 @@ class DiamondWebSettings : WebSettings
     response.bodyWriter.write(format("The path '%s' wasn't found.'", request.path));
   }
 
-  override void onStaticFile(HTTPServerRequest request, HTTPServerResponse response)
+  override void onStaticFile(HttpClient client)
   {
 
   }
