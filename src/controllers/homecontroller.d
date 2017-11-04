@@ -25,8 +25,8 @@ final class HomeController : Controller!HomeController
   /// Route: / | /home
   @HttpDefault Status home()
   {
-    return jsonString(q{{
+    return jsonString(`{
       "message": "Hello Diamond!"
-    }});
+    }`);
   }
 }
